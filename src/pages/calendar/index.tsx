@@ -5,6 +5,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return redirectToToday();
 };
 
-export default function Home() {
+export default function CalendarRootPage() {
   return null;
 }

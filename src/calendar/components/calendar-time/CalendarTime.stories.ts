@@ -23,8 +23,8 @@ export const Default: Story = {
   args: {},
 };
 
-export const Eco: Story = {
+export const Active: Story = {
   args: {
-    eco: true,
+    active: true,
   },
 };

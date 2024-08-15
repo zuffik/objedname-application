@@ -7,6 +7,9 @@ interface CalendarDayProps {
   active?: boolean;
 }
 
+/**
+ * Single day for calendar navigation.
+ */
 export const CalendarDay = ({ date, active }: CalendarDayProps) => {
   /**
    * Human-readable format means: word for today if the day is today,
@@ -18,6 +21,7 @@ export const CalendarDay = ({ date, active }: CalendarDayProps) => {
     `${isToday(date) ? "'Dnes'" : isTomorrow(date) ? "'Zítra'" : 'EEEE'} d.M.`,
   );
   const dateISO = formatISO(date, { representation: 'date' });
+  // could be also used with shallow routing + prefetching, which would behave as SPA
   return (
     <Link
       href={`/calendar/${dateISO}`}

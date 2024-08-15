@@ -10,7 +10,11 @@ export const MainNavBar = ({}: MainNavBarProps) => {
   return (
     <NavBar>
       {navBarItems.map((item) => (
-        <NavBarButton {...item} key={item.url} active={pathname === item.url} />
+        <NavBarButton
+          {...item}
+          key={item.url}
+          active={pathname.startsWith(item.url)}
+        />
       ))}
     </NavBar>
   );

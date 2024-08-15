@@ -3,7 +3,6 @@ import { formatISO, isPast, isToday, isValid, parseISO } from 'date-fns';
 import { redirectToToday } from '@/calendar/utils/redirectToToday';
 import { httpClient } from '@/http/defs/httpClient';
 import { DateTimeCapacityHttpResponse } from '@/calendar/types/DateTimeCapacityHttpResponse';
-import { generateDaysAheadFromNow } from '@/calendar/utils/generateDaysAheadFromNow';
 import {
   CalendarDatePage,
   CalendarDatePageProps,

@@ -9,10 +9,12 @@ export default function handler(
   res.status(200).json({
     Status: 'OK',
     Message: 'OK',
-    Data: Array.from({ length: 24 }).map((_, i) => {
+    // Although in old application capacity hours are filtered on frontend,
+    // unless there's a reason behind it, I would do it in backend.
+    Data: Array.from({ length: 8 }).map((_, i) => {
       const capacity = faker.number.int({ min: 0, max: 3 });
       return {
-        Time: `${i.toString().padStart(2, '0')}:00`,
+        Time: `${i + 12}:00`,
         Capacity: capacity,
         OriginalCapacity: faker.number.int({ min: capacity, max: 4 }),
       };

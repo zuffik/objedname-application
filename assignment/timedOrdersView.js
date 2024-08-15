@@ -314,6 +314,7 @@ $(document).ready(function () {
             var OriginalCapacity = time.OriginalCapacity;
             var TimeAhead = 25;
 
+            // exclude times when the restaurant is closed
             var isOpened = openingHours.some(function (hourInterval) {
               return helpers.isBetweenTimesExcludingStart(
                 hourInterval.TimeFrom,
@@ -329,13 +330,16 @@ $(document).ready(function () {
             var diff = orderDate - now;
             var minutes = Math.floor(diff / 1000 / 60);
 
+            // exclude times that are in the past or within 25 minutes from now
             if (minutes < TimeAhead) return;
             var templateTime = TemplateTime.clone();
             $(templateTime).first().text(Time).attr('data-time', Time);
+            // disabled if zero (or negative?) capacity
             if (Capacity < 1) {
               $(templateTime).addClass('disabled');
             }
 
+            // selected time
             if (Time == data.time) {
               $(templateTime).addClass('active');
             }
@@ -344,11 +348,15 @@ $(document).ready(function () {
             $(span).addClass('availability');
 
             var getUsedCapacity = function (OriginalCapacity, Capacity) {
+              // why this? all branches are identical
               if (Capacity < 0) {
+                // OriginalCapacity - (-Value of capacity)      ~ OriginalCapacity - Capacity
                 return OriginalCapacity + Math.abs(Capacity);
               } else if (Capacity === 0) {
+                // OriginalCapacity - 0                         ~ OriginalCapacity - Capacity
                 return OriginalCapacity;
               } else {
+                // OriginalCapacity - Capacity                  ~ OriginalCapacity - Capacity
                 return OriginalCapacity - Capacity;
               }
             };

@@ -1,3 +1,9 @@
-export interface NavBarProps {}
+import { ReactNode } from 'react';
 
-export const NavBar = ({}: NavBarProps) => {};
+export interface NavBarProps {
+  children?: ReactNode;
+}
+
+export const NavBar = ({ children }: NavBarProps) => {
+  return <nav className="flex flex-row items-center gap-x-2">{children}</nav>;
+};

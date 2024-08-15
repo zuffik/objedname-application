@@ -4,22 +4,18 @@ import { Icon } from '@/common/components/icon/Icon';
 
 export type ArrowButtonProps = {
   direction?: 'prev' | 'next';
-} & (
-  | {
-      disabled: true;
-    }
-  | {
-      href: string;
-    }
-);
+  disabled?: boolean;
+  onClick?: () => void;
+};
 
 export const ArrowButton = ({
   direction = 'prev',
-  ...props
+  disabled,
+  onClick,
 }: ArrowButtonProps) => {
   const className = 'block px-4 py-2 rounded-md';
   const icon = <Icon name={direction} />;
-  if ('disabled' in props && props.disabled) {
+  if (disabled) {
     return (
       <span
         className={classNames(
@@ -31,20 +27,15 @@ export const ArrowButton = ({
       </span>
     );
   }
-  if ('href' in props) {
-    return (
-      <Link
-        href={props.href}
-        className={classNames(
-          className,
-          'transition-colors bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600',
-        )}
-      >
-        {icon}
-      </Link>
-    );
-  }
-  // could be resolved using `is...` function
-  console.error('Unreachable code');
-  return null;
+  return (
+    <button
+      onClick={onClick}
+      className={classNames(
+        className,
+        'transition-colors bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600',
+      )}
+    >
+      {icon}
+    </button>
+  );
 };

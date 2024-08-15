@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ArrowButton } from '@/common/components/arrow-button/ArrowButton';
+import { fn } from '@storybook/test';
 
 const meta = {
   title: 'Common/ArrowButton',
@@ -16,14 +17,10 @@ const meta = {
       },
       options: ['prev', 'next'],
     },
-    disabled: {
-      type: 'boolean',
-      control: {
-        disable: true,
-      },
-    },
   },
-  args: {},
+  args: {
+    onClick: fn(),
+  },
 } satisfies Meta<typeof ArrowButton>;
 
 export default meta;
@@ -32,7 +29,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     direction: 'prev',
-    href: '/',
   },
 };
 

@@ -35,7 +35,7 @@ export const CalendarDayNavigation = ({
     [],
   );
   return (
-    <nav className="flex flex-row items-stretch gap-x-1 w-full flex-1">
+    <nav className="flex flex-row items-stretch gap-x-2 w-full flex-1">
       <ArrowButton
         direction="prev"
         disabled={prevDisabled}

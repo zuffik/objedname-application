@@ -20,7 +20,7 @@ export const ArrowButton = ({
       <span
         className={classNames(
           className,
-          'bg-gray-50 dark:bg-gray-800 text-gray-300 dark:text-gray-700',
+          'bg-gray-50 dark:bg-gray-800 text-gray-300 dark:text-gray-700 flex items-center',
         )}
       >
         {icon}

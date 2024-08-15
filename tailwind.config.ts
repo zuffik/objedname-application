@@ -2,7 +2,8 @@ import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
-  darkMode: ['class'],
+  // okay this will work for storybook only
+  darkMode: 'class',
   theme: {
     extend: {
       backgroundImage: {

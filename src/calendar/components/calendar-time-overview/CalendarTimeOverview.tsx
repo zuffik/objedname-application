@@ -15,6 +15,7 @@ export const CalendarTimeOverview = ({
   const [activeTime, setActiveTime] = useState<
     undefined | { time: string; date: Date }
   >();
+  // I guess here will be something that handles the selected day, otherwise I don't know what else to do with this
   return (
     <div className="grid grid-cols-3 gap-2 w-full">
       {capacities.map((c) => (

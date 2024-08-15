@@ -30,7 +30,7 @@ export const CalendarDay = ({ date, active }: CalendarDayProps) => {
         {
           'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-100':
             !active,
-          'bg-amber-500 hover:bg-amber-600 text-gray-700': active,
+          'bg-amber-500 hover:bg-amber-600 text-gray-50': active,
         },
       )}
     >

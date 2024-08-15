@@ -29,6 +29,7 @@ export const CalendarTimeOverview = ({
           time={c.Time}
           capacity={c.Capacity}
           originalCapacity={c.OriginalCapacity}
+          disabled={c.Capacity <= 0}
           active={
             activeTime &&
             activeTime.time === c.Time &&

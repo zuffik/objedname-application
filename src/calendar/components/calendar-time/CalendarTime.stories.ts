@@ -28,3 +28,9 @@ export const Active: Story = {
     active: true,
   },
 };
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+};

@@ -21,11 +21,14 @@ export const CalendarDay = ({ date, active }: CalendarDayProps) => {
   return (
     <Link
       href={`/calendar/${dateISO}`}
-      className={classNames('block px-4 py-2 transition-colors rounded-md', {
-        'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-100':
-          !active,
-        'bg-amber-500 hover:bg-amber-600 text-gray-700': active,
-      })}
+      className={classNames(
+        'block px-4 py-2 transition-colors rounded-md flex-1 text-center',
+        {
+          'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-100':
+            !active,
+          'bg-amber-500 hover:bg-amber-600 text-gray-700': active,
+        },
+      )}
     >
       {humanReadable}
     </Link>

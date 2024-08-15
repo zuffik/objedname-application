@@ -1,3 +1,4 @@
+import '@/styles/globals.css';
 import '@/initialize';
 import type { AppProps } from 'next/app';
 

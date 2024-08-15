@@ -5,5 +5,7 @@ export interface NavBarProps {
 }
 
 export const NavBar = ({ children }: NavBarProps) => {
-  return <nav className="flex flex-row items-center gap-x-2">{children}</nav>;
+  return (
+    <nav className="flex flex-row items-center gap-x-2 w-full">{children}</nav>
+  );
 };

@@ -13,12 +13,12 @@ export const getServerSideProps: GetServerSideProps<
 > = async ({ params }) => {
   const date = parseISO(
     // number of characters in ISO
-    params?.date?.toString().slice(10) ?? formatISO(Date.now()),
+    params?.date?.toString() ?? formatISO(Date.now()),
   );
   /**
    * If it's in the past or today (because past can be in today) or invalid, we redirect to valid date (today).
    */
-  if (!isValid(date) && isPast(date) && !isToday(date)) {
+  if (!isValid(date) || (isPast(date) && !isToday(date))) {
     return redirectToToday();
   }
   try {
@@ -26,9 +26,11 @@ export const getServerSideProps: GetServerSideProps<
     return {
       props: {
         capacities: data.data.Data,
+        date: formatISO(date, { representation: 'date' }),
       },
     };
-  } catch {
+  } catch (e) {
+    console.error(e);
     // or whatever to handle error (maybe redirect to 500 or 404 based on the response)...
     return {
       notFound: true,

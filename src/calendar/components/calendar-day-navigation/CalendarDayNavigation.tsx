@@ -22,7 +22,6 @@ export const CalendarDayNavigation = ({
       ),
     [paginatedDate],
   );
-  console.log(days);
   const prevDisabled = isSameDay(dateOrigin, paginatedDate);
   const handlePrevClick = useCallback(
     () =>
